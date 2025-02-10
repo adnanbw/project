@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -9,6 +8,7 @@ import {
   BarChart3,
   Settings,
   HelpCircle,
+  Clock,
   FolderKanban
 } from 'lucide-react';
 import type { NavigationItem } from '../types';
@@ -19,12 +19,12 @@ const navigation: NavigationItem[] = [
   { name: 'HR & Payroll', href: '/hr', icon: Users },
   { name: 'Projects', href: '/projects', icon: FolderKanban },
   { name: 'Client', href: '/clients', icon: Building2 },
+  { name: 'Time Tracking', href: '/time-tracking', icon: Clock},
   { name: 'Inventory', href: '/inventory', icon: ShoppingCart },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Settings', href: '/settings', icon: Settings },
-  { name: 'Support', href: '/support', icon: HelpCircle },
+  { name: 'Support', href: '/support', icon: HelpCircle }
 ];
-
 export function Navigation() {
   const location = useLocation();
 

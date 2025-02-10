@@ -2,6 +2,8 @@ import { supabase } from '../../lib/supabase';
 import type { Client } from '../../types/client';
 import { Project } from '../../types/project';
 
+// These functions do the talking with the database so if there is any error based on database its most likely to get solved here.
+
 export async function getClients(): Promise<Client[]> {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error('User not authenticated');
@@ -63,9 +65,6 @@ export async function createClient(client: Omit<Client, 'id' | 'createdAt' | 'pr
   if (error) throw error;
   return data as Client;
 }
-
-
-
 
 export async function updateClient(client: Omit<Client, 'projects' | 'createdAt'>): Promise<Client> {
   const { data: { user } } = await supabase.auth.getUser();
